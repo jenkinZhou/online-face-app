@@ -1,0 +1,43 @@
+
+   <nz-layout style=" height: 100%;">
+    <nz-header>
+      <div class="logo"></div>
+      <ul nz-menu nzTheme="dark" nzMode="horizontal" class="header-menu">
+        
+      </ul>
+    </nz-header>
+    <nz-layout>
+      <nz-sider nzWidth="200px" nzTheme="light">
+        <ul nz-menu nzMode="inline" class="sider-menu">
+            <div *ngFor="let item of moduleTree;">
+                <div *ngIf="item.subModules.length==0">
+                    <li nz-menu-item>
+                        <i nz-icon nzType="file"></i>
+                        <span>{{item.moduleName}}</span>
+                    </li>
+                </div>
+                <div *ngIf="item.subModules.length>0">
+                    <li nz-submenu nzTitle="{{item.moduleName}}">
+                        <ul *ngFor="let sub of item.subModules;">
+                            <li nz-menu-item>{{sub.moduleName}}</li>
+                        </ul>
+                    </li>
+                </div>
+
+            </div>
+        </ul>
+      </nz-sider>
+      <nz-layout class="inner-layout">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item>快速开始</nz-breadcrumb-item>
+           
+        </nz-breadcrumb>
+        <nz-content>
+            <app-face-content></app-face-content>
+        </nz-content>
+        <nz-footer>Ant Design ©2019 Implement By Angular</nz-footer>
+      </nz-layout>
+    </nz-layout>
+  </nz-layout>
+
+

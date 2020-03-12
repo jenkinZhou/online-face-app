@@ -1,0 +1,90 @@
+<div style="height: 100%;">
+    <!--左侧 -->
+    <div style="width: 25%;height: 100%;float: left;">
+        <!--标题-->
+        <div class="ant-card ant-card-bordered " style="height: 20%">
+            <div style="height: 70%; ">
+                <h1 class="title-text">如何保证线程安全？</h1>
+            </div>
+            <div style="height: 28%;width: 100%;
+                         margin-top: 1%;">
+                <div style="width: 40%;height: 100%; float: left;text-align: center;">
+                    <!-- <div style="margin-left: 40%;margin-top: 40%;"> -->
+                    <button nz-button>
+                        参考答案</button>
+                    <!-- </div> -->
+
+                </div>
+                <div style="width: 30%;height: 100%;float: left;text-align: center;">
+                    <!-- <div style="margin-left: 40%;margin-top: 50%;"> -->
+                    <button nz-button>上一题</button>
+                    <!-- </div> -->
+
+                </div>
+                <div style="width: 30%;height: 100%;float: left;text-align: center;">
+                    <!-- <div style="margin-left: 40%;margin-top: 50%;"> -->
+                    <button nz-button>下一题</button>
+                    <!-- </div> -->
+
+                </div>
+            </div>
+        </div>
+        <!-- 描述 -->
+        <div class="ant-card ant-card-bordered  " style="height: 59%;margin-top: 2%;">
+            <!-- 描述区域 -->
+            <div  class="title-text" >
+                <h2>题目描述：</h2>
+                <div  class="title-text">
+                    当前问题考察的是怎么实现线程安全
+                </div>
+            </div>
+            
+
+        </div>
+        <div class="ant-card-bordered ant-card" style="height: 15%;margin-top: 1%;">
+            <!-- 标签区域 -->
+            <div style=" height: 50%;margin-top: 3%;margin-left: 5%;">
+                <nz-tag [nzColor]="'magenta'">magenta</nz-tag>
+                <nz-tag [nzColor]="'red'">red</nz-tag>
+                <nz-tag [nzColor]="'volcano'">volcano</nz-tag>
+                <nz-tag [nzColor]="'orange'">orange</nz-tag>
+                <nz-tag [nzColor]="'gold'">gold</nz-tag>
+                <nz-tag [nzColor]="'lime'">lime</nz-tag>
+                <nz-tag [nzColor]="'green'">green</nz-tag>
+                <nz-tag [nzColor]="'cyan'">cyan</nz-tag>
+                <nz-tag [nzColor]="'blue'">blue</nz-tag>
+                <nz-tag [nzColor]="'geekblue'">geekblue</nz-tag>
+                <nz-tag [nzColor]="'purple'">purple</nz-tag>
+            </div>
+            <!-- 通过率区域 -->
+            <div style=" height: 40%;margin-top: 1%;">
+                <div style="float: left;width: 15%;margin-left: 5%;">通过率：</div>
+                <div style="float: left;width: 80%;">
+                    <nz-progress [nzPercent]="100" [nzShowInfo]="true"></nz-progress>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 作答区域，右侧 -->
+    <div style=" width: 74%;float: left;height: 95%;margin-left: 1%;" class="ant-card ant-card-bordered ">
+        <div class="ant-card-body" style='height: 100%;'>
+            <!-- 内容头部区域 -->
+            <div style="height: 10%; ">
+                <div style="float: left;"><span>作答区域：</span></div>
+                <div style=" margin-left: 80%;">
+                    <button nz-button>提交</button>
+                </div>
+            </div>
+            <!-- 内容区域 -->
+            <div style="height:90%;">
+                <div id="md" appEditorMd [editormdConfig]="conf" (onEditorChange)="syncModel($event)">
+                    <textarea style="display: block;" [(ngModel)]="markdown"></textarea>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
