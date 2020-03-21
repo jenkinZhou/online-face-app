@@ -13,7 +13,8 @@
                 <div *ngIf="item.subModules.length==0">
                     <li nz-menu-item>
                         <i nz-icon nzType="file"></i>
-                        <span>{{item.moduleName}}</span>
+                        <a  style="text-decoration:none;"
+                         [routerLink]="[item.moduleUrl]">{{item.moduleName}}</a> <span  ></span>
                     </li>
                 </div>
                 <div *ngIf="item.subModules.length>0">
@@ -33,7 +34,7 @@
            
         </nz-breadcrumb>
         <nz-content>
-            <app-face-content></app-face-content>
+          <router-outlet></router-outlet>
         </nz-content>
         <nz-footer>Ant Design ©2019 Implement By Angular</nz-footer>
       </nz-layout>

@@ -32,12 +32,24 @@
         <!-- 描述 -->
         <div class="ant-card ant-card-bordered  " style="height: 59%;margin-top: 2%;">
             <!-- 描述区域 -->
-            <div  class="title-text" >
-                <h2>题目描述：</h2>
-                <div  class="title-text">
-                    当前问题考察的是怎么实现线程安全
-                </div>
-            </div>
+
+            <nz-tabset  class="title-text">
+                <nz-tab *ngFor="let tab of tabs" [nzTitle]="tab.name" [nzDisabled]="tab.disabled">
+                    <div *ngIf="tab.type=='detail'"  class="title-text" >
+                        <h2>题目描述：</h2>
+                        <div  class="title-text">
+                            当前问题考察的是怎么实现线程安全
+                        </div>
+                    </div>
+                    <div *ngIf="tab.type=='comments'"  class="title-text" >
+                        <h2>题目评论：</h2>
+                        <div  class="title-text">
+                           <textarea placeholder="请留下你的评论"  [(value)]="value" ></textarea>
+                        </div>
+                    </div>
+                </nz-tab>
+              </nz-tabset>
+           
             
 
         </div>

@@ -12,6 +12,11 @@ import en from '@angular/common/locales/en';
 import { FaceBodyComponent } from './face-body/face-body.component';
 import { EditorMdDirective } from './config/editor-md.directive';
 import { FaceContentComponent } from './face-content/face-content.component';
+import { MyStarQuestionsComponent } from './my-star-questions/my-star-questions.component';
+import { QuestionTableComponent } from './question-table/question-table.component';
+import { QuickStartGuard } from './guard/QuickStartGuard';
+import { MyStarGuard } from './guard/MyStarGuard';
+import { RequestUtil } from './util/RequestUtil';
 
 registerLocaleData(en);
 
@@ -20,7 +25,10 @@ registerLocaleData(en);
     AppComponent,
     FaceBodyComponent,
     EditorMdDirective,
-    FaceContentComponent
+    FaceContentComponent,
+    MyStarQuestionsComponent,
+    QuestionTableComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -30,7 +38,7 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule 
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [{ provide: NZ_I18N, useValue: zh_CN },QuickStartGuard,MyStarGuard,RequestUtil],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

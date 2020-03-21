@@ -7,8 +7,8 @@ export class ModuleTree{
     public moduleIcon:string;
     public moduleLevel:number;
     public moduleSeq:number;
-    
-    constructor(moduleName:string,moduleUrl:string,moduleId:number,
+    public moduleCode:string;
+    constructor(moduleName:string,moduleCode:string,moduleUrl:string,moduleId:number,
         moduleParentId:number,moduleIcon:string,moduleLevel:number,
         moduleSeq:number){
             this.moduleIcon=moduleIcon;
@@ -19,6 +19,7 @@ export class ModuleTree{
             this.moduleParentId = moduleParentId;
             this.subModules = new Array();
             this.moduleSeq = moduleSeq;
+            this.moduleCode=moduleCode;
         }
       
    
