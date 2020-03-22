@@ -1,9 +1,11 @@
+import { Response } from 'src/app/bean/Response';
+
 
 //当前类为接口 /getBeforeQuestion  的返回参数
-export class UserTrainQuestionVO {
+export class UserTrainQuestionVO extends Response{
 
 
-constructor(){};
+ 
 //当前题目的ID
 faceTrainQuestionId:number
 //训练计划的ID

@@ -1,7 +1,8 @@
 .title-text{
-    margin-left: 3%;
+    margin-left: 1%;
     /* width: 99%; */
-    margin-top: 3%;
+    margin-top: 2%;
+    overflow-y:auto;
     /* height: 99%; */
 }
  nz-tag{

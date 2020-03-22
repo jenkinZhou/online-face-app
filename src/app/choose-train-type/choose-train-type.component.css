@@ -1,0 +1,15 @@
+#chooseTable td{
+    font-size: 12px;
+    padding-top: 20px;
+}
+ 
+.ant-input-number {
+    min-width: 90%;
+}
+
+.nz-cascader {
+    min-width: 90%;
+}
+.ant-select {
+    min-width: 90%;
+}

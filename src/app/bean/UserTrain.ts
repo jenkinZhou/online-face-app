@@ -1,17 +1,19 @@
+import { Response } from 'src/app/bean/Response';
+import { UserTrainQuestionVO } from 'src/app/bean/UserTrainQuestionVO';
 
 
-//当前类为接口 /createUserTrain  的返回参数
-export class UserTrain {
 
+//当前类为接口 /createUserTrain  的参数
+export class UserTrain extends Response{
+    constructor(){super()};
 
-    constructor(){};
-    //用户编码
+     //用户编码
     userCode:string
     //问题套餐记录ID
     questionRecordId:number
     //当前做的题目的位置
     faceTrainQuestionIndex:number
-    //当前进行的训练的类型（自定义随机）
+    //当前进行的训练的类型（choose/star）
     faceTrainType:string
     //题目数目，默认50
     questionNum:number

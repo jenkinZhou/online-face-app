@@ -25,7 +25,7 @@
             ],
             "styles": [
               "./src/assets/editormd/css/editormd.css",
-        
+              "node_modules/ng-zorro-antd/ng-zorro-antd.less",
               "src/theme.less",
               "src/styles.css"
             ],

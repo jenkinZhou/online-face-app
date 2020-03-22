@@ -1,0 +1,53 @@
+  
+     
+      <nz-modal nzWidth="600" [(nzVisible)]="isVisible" nzTitle="题目类型选择"  (nzOnCancel)="handleCancel()">
+        <div id="chooseTable">
+
+                <table style="width:100%" >
+                        <tr>
+                               <td >题目数量：</td> 
+                               <td><nz-input-number nzSize="small" [(ngModel)]="userTrain.questionNum" [nzMin]="10" [nzMax]="100" [nzStep]="10"></nz-input-number></td> 
+                               <td>过滤类型：</td> 
+                               <td> <nz-select nzSize="small" [(ngModel)]="userTrain.filterType" nzAllowClear nzPlaceHolder="请选择">
+                                    <nz-option nzValue="lastOne" nzLabel="最近一次做过的不做"></nz-option>
+                                    <nz-option nzValue="lastTwo" nzLabel="最近两次做过的不做"></nz-option>
+                                    <nz-option nzValue="lastThree" nzLabel="最近三次做过的不做" ></nz-option>
+                                    <nz-option nzValue="lastAll" nzLabel="最近做过的都不做" ></nz-option>
+                                  </nz-select></td> 
+                               
+                        </tr>
+                        <tr>
+                                <td>题目分类1：</td> 
+                               <td><nz-cascader nzSize="small" [(ngModel)]="userTrain.filterQuestionFirstType" [nzLoadData]="loadData"
+                                nzExpandTrigger='hover' 
+                                (ngModelChange)="onQuestionTypeChange($event)"> </nz-cascader></td> 
+                                <td>题目分类2：</td> 
+                                <td><nz-cascader nzSize="small"
+                                        nzExpandTrigger='hover' 
+                                        [(ngModel)]="userTrain.filterQuestionSecondType" [nzLoadData]="loadData" (ngModelChange)="onQuestionTypeChange($event)"> </nz-cascader></td> 
+                               
+                        </tr>
+                        <tr>
+                                <td>题目分类3：</td> 
+                                <td><nz-cascader nzSize="small"
+                                        nzExpandTrigger='hover' 
+                                        [(ngModel)]="userTrain.filterQuestionThirdType" [nzLoadData]="loadData" (ngModelChange)="onQuestionTypeChange($event)"> </nz-cascader></td> 
+                                <td>题目分类4：</td> 
+                                <td><nz-cascader nzSize="small" 
+                                        nzExpandTrigger='hover'
+                                        [(ngModel)]="userTrain.filterQuestionFourthType" [nzLoadData]="loadData" (ngModelChange)="onQuestionTypeChange($event)"> </nz-cascader></td> 
+                        </tr>
+
+
+
+                </table>
+
+ 
+
+
+        </div>
+        <div *nzModalFooter>
+           <button nz-button nzType="default" (click)="handleCancel()">取消</button>
+          <button nz-button nzType="primary" (click)="handleOk()" [nzLoading]="isConfirmLoading">确认</button>
+        </div>
+      </nz-modal>

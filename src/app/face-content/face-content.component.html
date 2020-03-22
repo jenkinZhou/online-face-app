@@ -1,50 +1,53 @@
-<div style="height: 100%;">
+<nz-skeleton   [nzLoading]="showStack" [nzActive]="true"  >
+</nz-skeleton>
+
+<div *ngIf="!showStack" style="height: 100%;">
     <!--左侧 -->
     <div style="width: 25%;height: 100%;float: left;">
         <!--标题-->
         <div class="ant-card ant-card-bordered " style="height: 20%">
             <div style="height: 70%; ">
-                <h1 class="title-text">如何保证线程安全？</h1>
+                <h1 class="title-text">{{currentTrain.faceTitle}}</h1>
             </div>
             <div style="height: 28%;width: 100%;
                          margin-top: 1%;">
                 <div style="width: 40%;height: 100%; float: left;text-align: center;">
                     <!-- <div style="margin-left: 40%;margin-top: 40%;"> -->
-                    <button nz-button>
-                        参考答案</button>
+                    <!-- <button  nz-button (click)="show()">
+                        参考答案</button> -->
                     <!-- </div> -->
 
                 </div>
                 <div style="width: 30%;height: 100%;float: left;text-align: center;">
                     <!-- <div style="margin-left: 40%;margin-top: 50%;"> -->
-                    <button nz-button>上一题</button>
+                    <button nz-button (click)="prev()">上一题</button>
                     <!-- </div> -->
 
                 </div>
                 <div style="width: 30%;height: 100%;float: left;text-align: center;">
                     <!-- <div style="margin-left: 40%;margin-top: 50%;"> -->
-                    <button nz-button>下一题</button>
+                    <button nz-button (click)="next()">下一题</button>
                     <!-- </div> -->
 
                 </div>
             </div>
         </div>
         <!-- 描述 -->
-        <div class="ant-card ant-card-bordered  " style="height: 59%;margin-top: 2%;">
+        <div class="ant-card ant-card-bordered  " style="height: 59%;margin-top: 2%;overflow-y:auto;overflow-x:auto">
             <!-- 描述区域 -->
 
             <nz-tabset  class="title-text">
                 <nz-tab *ngFor="let tab of tabs" [nzTitle]="tab.name" [nzDisabled]="tab.disabled">
                     <div *ngIf="tab.type=='detail'"  class="title-text" >
-                        <h2>题目描述：</h2>
+                        <h2>题目答案：</h2>
                         <div  class="title-text">
-                            当前问题考察的是怎么实现线程安全
+                           <div  class="title-text" [innerHTML]=" currentTrain.faceStandardAnswer"></div>
                         </div>
                     </div>
                     <div *ngIf="tab.type=='comments'"  class="title-text" >
                         <h2>题目评论：</h2>
                         <div  class="title-text">
-                           <textarea placeholder="请留下你的评论"  [(value)]="value" ></textarea>
+                           <textarea placeholder="请留下你的评论"  [(value)]="comments" ></textarea>
                         </div>
                     </div>
                 </nz-tab>
@@ -90,7 +93,7 @@
             <!-- 内容区域 -->
             <div style="height:90%;">
                 <div id="md" appEditorMd [editormdConfig]="conf" (onEditorChange)="syncModel($event)">
-                    <textarea style="display: block;" [(ngModel)]="markdown"></textarea>
+                    <textarea style="display: block;" [(ngModel)]="currentTrain.faceTrainQuestionAnswer"></textarea>
                 </div>
             </div>
 
@@ -100,3 +103,5 @@
 
 
 </div>
+
+<app-choose-train-type  [(isVisible)]="isVisible" (onConfirm)="onConfirm($event)" (onCancel)="onCancel()" ></app-choose-train-type>

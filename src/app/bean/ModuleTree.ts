@@ -8,6 +8,7 @@ export class ModuleTree{
     public moduleLevel:number;
     public moduleSeq:number;
     public moduleCode:string;
+
     constructor(moduleName:string,moduleCode:string,moduleUrl:string,moduleId:number,
         moduleParentId:number,moduleIcon:string,moduleLevel:number,
         moduleSeq:number){

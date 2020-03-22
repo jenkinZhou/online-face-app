@@ -8,10 +8,10 @@ import { QuestionTableComponent } from './question-table/question-table.componen
 
 
  const routes: Routes = [
-  {path:'face',component:QuestionTableComponent },
-  {path:'face/quickStart',component:FaceContentComponent,canActivate:[QuickStartGuard]},
-{path:'face/starTrain',component:MyStarQuestionsComponent,canActivate:[MyStarGuard]},
-{path:'face/questionTable',component:QuestionTableComponent }
+  {path:'home',component:QuestionTableComponent },
+  {path:'home/quickStart',component:FaceContentComponent,canActivate:[QuickStartGuard]},
+{path:'home/starTrain',component:MyStarQuestionsComponent,canActivate:[MyStarGuard]},
+{path:'home/questionTable',component:QuestionTableComponent }
 
  ];
 // const routerConfig:Routes=[
@@ -31,7 +31,7 @@ import { QuestionTableComponent } from './question-table/question-table.componen
 //   {path:'noauth',component:NoAuthPageComponent,canActivate:[RouterGuard]}
 // ]
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [ RouterModule.forRoot(routes,{useHash: true, onSameUrlNavigation: 'reload'}),],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

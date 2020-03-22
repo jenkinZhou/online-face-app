@@ -12,9 +12,15 @@
             <div *ngFor="let item of moduleTree;">
                 <div *ngIf="item.subModules.length==0">
                     <li nz-menu-item>
+                      <div>
                         <i nz-icon nzType="file"></i>
+                        
                         <a  style="text-decoration:none;"
-                         [routerLink]="[item.moduleUrl]">{{item.moduleName}}</a> <span  ></span>
+                         [routerLink]="[item.moduleUrl]" [queryParams]="{type:item.moduleCode=='quickStart'?'choose':item.moduleCode}" >{{item.moduleName}}
+                        </a> 
+
+                      </div>
+                       
                     </li>
                 </div>
                 <div *ngIf="item.subModules.length>0">
@@ -40,5 +46,4 @@
       </nz-layout>
     </nz-layout>
   </nz-layout>
-
 

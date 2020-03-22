@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgZorroAntdModule, NZ_I18N, en_US, zh_CN } from 'ng-zorro-antd';
+import { NgZorroAntdModule, NZ_I18N, en_US, zh_CN, NzNotificationService } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
@@ -17,7 +17,9 @@ import { QuestionTableComponent } from './question-table/question-table.componen
 import { QuickStartGuard } from './guard/QuickStartGuard';
 import { MyStarGuard } from './guard/MyStarGuard';
 import { RequestUtil } from './util/RequestUtil';
-
+import { ChooseTrainTypeComponent } from './choose-train-type/choose-train-type.component';
+import { ChooseTrainTypeService } from './service/choose-train-type.service';
+ 
 registerLocaleData(en);
 
 @NgModule({
@@ -27,7 +29,8 @@ registerLocaleData(en);
     EditorMdDirective,
     FaceContentComponent,
     MyStarQuestionsComponent,
-    QuestionTableComponent
+    QuestionTableComponent,
+    ChooseTrainTypeComponent
     
   ],
   imports: [
